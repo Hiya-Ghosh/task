@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from "./components/Home.js";
+import Main from "./components/Main.js";
+import Create from "./components/Create.js";
+import Approved from "./components/Approved.js";
+import Pending from "./components/Pending.js";
+import User from "./components/User.js";
+import Permit from "./components/Permit.js";
+import Others from "./components/Others.js";
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <Routes>
+          <Route path="" element={<Home />} />
+          <Route path="/Main" element={<Main />} />
+          <Route path="/Create" element={<Create />} />
+          <Route path="/Approved" element={<Approved />} />
+          <Route path="/Pending" element={<Pending />} />
+          <Route path="/User" element={<User />} />
+          <Route path="/Permit" element={<Permit />} />
+          <Route path="/Others" element={<Others />} />
+
+        </Routes>
+      </Router>
+
     </div>
+    
   );
 }
 
