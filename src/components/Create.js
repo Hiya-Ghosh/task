@@ -77,12 +77,14 @@ const Create = (props) => {
   };
 
   return (
+    <div className="outer-box">
     <div className="my-component">
       <div className="form-container">
         <form onSubmit={handleSubmit}>
-          <div className="form-group">
+          <div className="form-group ">
             <label>Select Date:</label>
             <input
+              className='wide-input'
               type="date"
               name="date"
               value={formData.date}
@@ -167,7 +169,7 @@ const Create = (props) => {
             />
           </div>
 
-          <div>
+          <div style={{  marginTop: '5px', marginBottom: '15px' }}>
             <span><b>Select Authorities for approval</b></span>
             <form>
               <label>
@@ -211,7 +213,7 @@ const Create = (props) => {
               </select>
             </div>
 
-            <div>
+            <div  style={{  marginTop: '5px', marginBottom: '15px' }}>
               <span><b>Add Flowchart for Approval</b></span>
             </div>
 
@@ -245,14 +247,18 @@ const Create = (props) => {
 
           </div>
 
+         
           <div className="app">
             {cards}
-            <button onClick={handleAddCard}>Add Approvers</button>
+            <div className="button-container" style={{  marginTop: '5px', marginBottom: '15px' }}><button  onClick={handleAddCard}>Add Approvers</button></div>
           </div>
           <ImageUploadForm />
-          <button type="submit">Submit</button>
+          <div className="button-container"><button type="submit">Submit</button></div>
+      
         </form>
       </div>
+      
+    </div>
     </div>
   );
 }

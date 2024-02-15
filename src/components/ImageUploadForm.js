@@ -17,22 +17,24 @@ const ImageUploadForm = () => {
   };
 
   return (
-    <div>
-      <h2>Upload Document</h2>
-      <form >
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          style={{ marginBottom: '10px' }}
-        />
-        {image && (
-          <div>
-            <img src={image} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '200px' }} />
-          </div>
-        )}
-      </form>
-    </div>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
+  <h3 style={{ marginRight: '20px', marginBottom: '0' }}>Upload File</h3>
+  <form style={{ display: 'flex', alignItems: 'center', marginBottom: '0' }}>
+    <input
+      type="file"
+      accept="image/*"
+      onChange={handleImageChange}
+      style={{ marginBottom: '10px', marginRight: '10px' }}
+    />
+    {image && (
+      <div>
+        <img src={image} alt="Uploaded" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+      </div>
+    )}
+  </form>
+</div>
+
+
   );
 };
 

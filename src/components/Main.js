@@ -72,7 +72,7 @@ const Main = (props) => {
       ];
 
       return (
-        <div>
+        <div className='full-display'>
             <nav className="navbar">
                 <ul>
                     <li><a className="header" href="/Permit">Permit</a></li>
@@ -94,7 +94,7 @@ const Main = (props) => {
                 {cardsData.map((card) => (
                     <div className="card" key={card.id}>
                         <h2>{card.heading}</h2>
-                        <p><span>{card.date}</span><span className="red">{card.permission}</span></p>
+                        <p className='card-date'><span>{card.date}</span><span className="red">{card.permission}</span></p>
                         <p>{card.details}</p>
                         <p className='assign'>{card.assign}</p>
                         <div className="small-squares">
