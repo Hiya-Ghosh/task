@@ -73,26 +73,32 @@ const Pending = (props) => {
 
     return (
         <div>
-        <nav className="navbar">
+       <nav className="navbar">
             <ul>
-                <li><a className="header" href="/Permit">Permit</a></li>
                 <li><a className="header" href="/Main">All</a></li>
                 <li><a className="header" href="/Approved">Approved</a></li>
                 <li><a className="header" href="/Pending">Pending</a></li>
-                <li><a className="header" href="/Others">Others</a></li>
+                <li><a className="header" href="/StatusBar">Status</a></li>
             </ul>
+            <div className="search-box">
+                <input type="text" placeholder="Search..." />
+                <button><i className="fa fa-search"></i></button>
+            </div>
             <div className="profile-image">
                 <a href='/User'><img src={profileImage} alt="Profile" /></a>
             </div>
         </nav>
 
         <div className='add'><div className='move'>
-                <a href='/Create'><button className='add_notesheet'  >Add Notesheet</button></a>
+        <a href='/Create'>
+            <button style={{ fontSize: '50px', width: '60px', height: '60px', borderRadius: '50%', backgroundColor: '#007bff', color: 'white', border: 'none', cursor: 'pointer', boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)' }}>+</button>
+        </a>
+
             </div></div>
 
         <div className="card-list">
     {cardsData
-        .filter(card => card.permission === 'Approved') // Change 'Approved' to the certain value you want
+        .filter(card => card.permission === 'Pending') // Change 'Approved' to the certain value you want
         .map((card) => (
             <div className="card" key={card.id}>
                 <h2>{card.heading}</h2>
@@ -133,7 +139,7 @@ const Pending = (props) => {
                             >
                                 <div className='tick_container'>
                                 <img className='tick_img' src={fwd} alt="fwd" />
-                                <div>Fwd</div>
+                                <div>Progess</div>
                                 </div>
                             </button>
                         </div>

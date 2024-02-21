@@ -5,9 +5,15 @@ import Create from "./components/Create.js";
 import Approved from "./components/Approved.js";
 import Pending from "./components/Pending.js";
 import User from "./components/User.js";
-import Permit from "./components/Permit.js";
-import Others from "./components/Others.js";
+import Status from "./components/Status.js";
+import StatusBar from "./components/StatusBar.js";
 
+const milestones = [
+  { status: true }, // Complete
+  { status: false }, // Incomplete
+  { status: true }, // Complete
+  // Add more milestones as needed
+];
 
 function App() {
   return (
@@ -20,8 +26,8 @@ function App() {
           <Route path="/Approved" element={<Approved />} />
           <Route path="/Pending" element={<Pending />} />
           <Route path="/User" element={<User />} />
-          <Route path="/Permit" element={<Permit />} />
-          <Route path="/Others" element={<Others />} />
+          <Route path="/Status" element={<Status />} />
+          <Route path="/StatusBar" element={<StatusBar />} />
 
         </Routes>
       </Router>
