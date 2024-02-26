@@ -34,108 +34,6 @@ const StatusBar = (props) => {
   </div>
 </div>
 
-<div className="container5">
-  <div className="status-bar">
-    <div className="progress-bar">
-      <div className="line"></div>
-      <div className="milestones">
-        {milestones.map((milestone, index) => (
-          <div
-            className={`milestone ${milestone.status ? 'complete' : 'incomplete'}`}
-            key={index}
-            style={{ left: `${(index / (milestones.length - 1)) * 100}%` }}
-          ></div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div className="container4">
-  <div className="status-bar">
-    <div className="progress-bar">
-      <div className="line"></div>
-      <div className="milestones">
-        {milestones.map((milestone, index) => (
-          <div
-            className={`milestone ${milestone.status ? 'complete' : 'incomplete'}`}
-            key={index}
-            style={{ left: `${(index / (milestones.length - 1)) * 100}%` }}
-          ></div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div className="container5">
-  <div className="status-bar">
-    <div className="progress-bar">
-      <div className="line"></div>
-      <div className="milestones">
-        {milestones.map((milestone, index) => (
-          <div
-            className={`milestone ${milestone.status ? 'complete' : 'incomplete'}`}
-            key={index}
-            style={{ left: `${(index / (milestones.length - 1)) * 100}%` }}
-          ></div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div className="container5">
-  <div className="status-bar">
-    <div className="progress-bar">
-      <div className="line"></div>
-      <div className="milestones">
-        {milestones.map((milestone, index) => (
-          <div
-            className={`milestone ${milestone.status ? 'complete' : 'incomplete'}`}
-            key={index}
-            style={{ left: `${(index / (milestones.length - 1)) * 100}%` }}
-          ></div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div className="container5">
-  <div className="status-bar">
-    <div className="progress-bar">
-      <div className="line"></div>
-      <div className="milestones">
-        {milestones.map((milestone, index) => (
-          <div
-            className={`milestone ${milestone.status ? 'complete' : 'incomplete'}`}
-            key={index}
-            style={{ left: `${(index / (milestones.length - 1)) * 100}%` }}
-          ></div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
-<div className="container5">
-  <div className="status-bar">
-    <div className="progress-bar">
-      <div className="line"></div>
-      <div className="milestones">
-        {milestones.map((milestone, index) => (
-          <div
-            className={`milestone ${milestone.status ? 'complete' : 'incomplete'}`}
-            key={index}
-            style={{ left: `${(index / (milestones.length - 1)) * 100}%` }}
-          ></div>
-        ))}
-      </div>
-    </div>
-  </div>
-</div>
-
 
 
 
@@ -148,5 +46,4 @@ const StatusBar = (props) => {
 
 
 export default StatusBar;
-
 
