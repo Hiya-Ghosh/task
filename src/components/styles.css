@@ -365,6 +365,34 @@
   cursor: pointer;
 }
 
+/* user container */
+.user-container{
+  background: rgba(227, 227, 227, 0.737);
+  z-index: 1;
+}
+
+.orange_overlay {
+   background: #ffa5004a;
+     /* Ensure the overlay is behind other content */
+}
+
+/* status */
+.status_square {
+  /* padding-left: 4px; */
+  /* padding-right: 4px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.user_img{
+height: 75px;
+width: 75px;
+border-radius: 50%;
+margin-top: 10px;
+margin-bottom: 10px;
+}
 
 @media (max-width: 1200px) {
   .card {
@@ -640,10 +668,9 @@ us: 5px;
 /* STATUS */
 
 .container5 {
-  width: 70%; /* Adjust as needed */
+  width: 100%; /* Adjust as needed */
   margin: 3% auto; /* Center the container horizontally */
   padding: 20px; /* Add padding for spacing */
-  background-color: rgb(227, 227, 227); /* Background color of the progress bar */
 
 }
 
@@ -662,11 +689,11 @@ us: 5px;
 }
 
 .progress-bar {
-  width: 500px; /* Adjust as needed */
-  height: 20px; /* Adjust as needed */
-  background-color: rgb(227, 227, 227); /* Background color of the progress bar */
+  width: 500px;
+  height: 20px;
+  /* background-color: rgb(227, 227, 227); */
   position: relative;
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 10px;
   width: 100%;
 }
 
