@@ -96,7 +96,11 @@ const Approved = (props) => {
             </a>
           </li>
           <li>
+<<<<<<< HEAD
             <a className="header" href="/Status">
+=======
+            <a className="header" href="/StatusBar">
+>>>>>>> origin/master
               Status
             </a>
           </li>
