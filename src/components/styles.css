@@ -308,6 +308,35 @@
   text-align: left;
 }
 
+/* check */
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+
+.search-box input[type="text"] {
+  padding-right: 30px; /* Adjust this value according to your image size */
+}
+
+.search-box button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px; /* Adjust this value to position the button */
+  background: none;
+  border: none;
+}
+
+.mag_img {
+  width: 20px; /* Adjust the size of the image */
+  height: auto;
+}
+
+
+.mag_img{
+  height: 12px;
+  width: 12px;
+}
 .submit-button {
   display: flex;
   align-self: center; 
@@ -320,6 +349,8 @@
   margin-top: 20px; /* Adjust the margin to position the button */
   
 }
+
+/* note status */
 
 .edit-button {
   background-color: #f6a32e;

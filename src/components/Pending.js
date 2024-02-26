@@ -5,6 +5,7 @@ import tick from "../images/approve.png";
 import fwd from "../images/fwd.png";
 import remark from "../images/remark.svg";
 import meet from "../images/meet.svg";
+import mag from "../images/mag-glass.png";
 
 const Pending = (props) => {
   const [selectedIds, setSelectedIds] = useState([]);
@@ -103,7 +104,7 @@ const Pending = (props) => {
         <div className="search-box">
           <input type="text" placeholder="Search..." />
           <button>
-            <i className="fa fa-search"></i>
+            <img className="mag_img" src={mag} alt="mag" />
           </button>
         </div>
         <div className="profile-image">
@@ -122,7 +123,7 @@ const Pending = (props) => {
                 width: "60px",
                 height: "60px",
                 borderRadius: "50%",
-                backgroundColor: "#007bff",
+                backgroundColor: "#ff8800e5",
                 color: "white",
                 border: "none",
                 cursor: "pointer",
@@ -144,11 +145,17 @@ const Pending = (props) => {
               <p className="card-date">
                 <span>{card.date}</span>
                 <span
-                  className="note_status"
-                  style={{
-                    color: card.permission === "Approved" ? "green" : "red",
-                  }}
-                >
+                className="note_status"
+                style={{
+                  backgroundColor:
+                    card.permission === "Approved" ? "green" : "red",
+                  color: "white",
+                  padding: "3px",
+                  borderRadius: "25px",
+                  paddingLeft: "10px",
+                  paddingRight: "10px",
+                }}
+              >
                   {card.permission}
                 </span>
               </p>
