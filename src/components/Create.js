@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import './styles.css';
 import ImageUploadForm from './ImageUploadForm';
+import BG_main from "../images/BG_main.png"; // Import background image
+
+
+import profileImage from "../images/user.png";
+import tick from "../images/approve.png";
+import fwd from "../images/fwd.png";
+import remark from "../images/remark.svg";
+import meet from "../images/meet.svg";
+import mag from "../images/mag-glass.png";
 
 const Create = (props) => {
   const [cards, setCards] = useState([]);
@@ -77,77 +86,121 @@ const Create = (props) => {
   };
 
   return (
-    <div className="outer-box">
+    <div>
+    <nav className="navbar" style={{ marginBottom: '0' }}>
+        <ul>
+          <li>
+            <a className="header" href="/Main">
+              All
+            </a>
+          </li>
+          <li>
+            <a className="header" href="/Approved">
+              Approved
+            </a>
+          </li>
+          <li>
+            <a className="header" href="/Pending">
+              Pending
+            </a>
+          </li>
+          <li>
+            <a className="header" href="/Status">
+              Status
+            </a>
+          </li>
+        </ul>
+        <div className="search-box">
+          <input type="text" placeholder="Search..." />
+          <button>
+            <img className="mag_img" src={mag} alt="mag" />
+          </button>
+        </div>
+        <div className="profile-image">
+          <a href="/User">
+            <img src={profileImage} alt="Profile" />
+          </a>
+        </div>
+      </nav>
+
+    <div className="user-container" style={{backgroundImage: `url(${BG_main})`, backgroundSize: 'cover'}}>
+    <div className="orange_overlay">
+    <div className="outer-box" style={{ backgroundColor: 'white' }}>
     <div className="my-component">
       <div className="form-container">
         <form onSubmit={handleSubmit}>
-          <div className="form-group ">
-            <label>Select Date:</label>
-            <input
-              className='wide-input'
-              type="date"
-              name="date"
-              value={formData.date}
-              onChange={handleChange}
-            />
-          </div>
+
 
           <div className="form-group">
-            <label>School:</label>
-            <input
-              type="text"
-              name="school"
-              value={formData.school}
-              onChange={handleChange}
-            />
-          </div>
+          <label style={{ display: 'inline-block', width: '120px', textAlign: 'right', marginRight: '10px' }}>Select Date:</label>
+          <input
+            className='wide-input'
+            type="date"
+            name="date"
+            value={formData.date}
+            onChange={handleChange}
+            style={{ display: 'inline-block', width: 'calc(100% - 130px)' }}
+          />
+        </div>
+
 
           <div className="form-group">
-            <label>Department:</label>
-            <input
-              type="text"
-              name="department"
-              value={formData.department}
-              onChange={handleChange}
-            />
-          </div>
+          <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
+          <input
+            type="text"
+            name="school"
+            value={formData.school}
+            onChange={handleChange}
+            style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+          />
+        </div>
+
+
+        <div className="form-group">
+  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
+  <input
+    type="text"
+    name="school"
+    value={formData.school}
+    onChange={handleChange}
+    style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+  />
+</div>
+
 
           <div className="form-group">
-            <label>Subject:</label>
-            <input
-              type="text"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-            />
-          </div>
+  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>Subject:</label>
+  <input
+    type="text"
+    name="subject"
+    value={formData.subject}
+    onChange={handleChange}
+    style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+  />
+</div>
 
-          <div className="form-group">
-            <label>Description:</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-            />
-          </div>
 
-          <div className="form-group">
-            <label>Details:</label>
-            <textarea
-              name="details"
-              value={formData.details}
-              onChange={handleChange}
-            />
-          </div>
+<div className="form-group">
+  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Details:</label>
+  <textarea
+    name="details"
+    value={formData.details}
+    onChange={handleChange}
+    style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
+  />
+</div>
 
-          <div className="form-group">
-            <label>Objective:</label>
-            <textarea
-              name="objective"
-              value={formData.objective}
-              onChange={handleChange}
-            />
-          </div>
+
+<div className="form-group">
+  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Objective:</label>
+  <textarea
+    name="objective"
+    value={formData.objective}
+    onChange={handleChange}
+    style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
+  />
+</div>
+
 
           <div className="form-group">
             <label>Proposed By 1:</label>
@@ -258,6 +311,9 @@ const Create = (props) => {
         </form>
       </div>
       
+    </div>
+    </div>
+    </div>
     </div>
     </div>
   );

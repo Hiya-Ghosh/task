@@ -67,7 +67,7 @@
 /* MAIN */
 
 .navbar {
-    background-color: rgba(248, 176, 175, 0.5);
+    background-color: #ff8800e5;
     padding: 1%;
     padding-left: 2%;
     padding-right: 2%;
@@ -153,13 +153,12 @@
   /* MAIN */
 
   .small-squares {
-    padding-left: 4px;
-    padding-right: 4px;
+    /* padding-left: 4px; */
+    /* padding-right: 4px; */
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
-    
-  }
+}
   
   .tick {
     padding: 0.5rem;
@@ -186,26 +185,34 @@
   
   /* Adjust tick image size if needed */
   .tick img {
-    width: 25px;
-    height: 25px;
-  }
+    width: 15px;
+    height: 15px;
+}
 
-  .select_box{
+.container_text{
+  
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+  .select_box {
     border-radius: 20%;
-    width: 70px;
-    height: 100%;
+    width: 55px;
+    height: 55px;
     display: flex;
     justify-content: center;
-  }
+}
+
+
   
-  .tick_container{
-    display: flex;
-    flex-direction: column;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    padding-left: 3px;
-    padding-right: 3px;
-  }
+.tick_container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2px;
+  /* padding-bottom: 14px; */
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
   .tick_img{
     display: flex;
@@ -263,10 +270,23 @@
 }
 
 .card {
+  width: -moz-fit-content;
   width: fit-content;
   border: 1px solid #ccc;
   padding: 12px;
-} 
+}
+
+.card  {
+  color: rgb(52, 49, 76);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  overflow: hidden;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: space-between;
+  background: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 3px -2px, rgba(0, 0, 0, 0.04) 0px 3px 4px 0px, rgba(0, 0, 0, 0.04) 0px 1px 8px 0px !important;
+  padding: 24px !important;
+}
 
 .card h2{
   font-size: 21px;
@@ -276,9 +296,102 @@
   font-size: 13.5px;
 }
 
-.card-date{
+.card-date {
   display: flex;
+  justify-content: space-between;
+}
+
+/*submit button*/
+.input-label {
+  justify-content: space-between;
+  display: flex;
+  text-align: left;
+}
+
+/* check */
+.search-box {
+  position: relative;
+  display: inline-block;
+}
+
+.search-box input[type="text"] {
+  padding-right: 30px; /* Adjust this value according to your image size */
+}
+
+.search-box button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px; /* Adjust this value to position the button */
+  background: none;
+  border: none;
+}
+
+.mag_img {
+  width: 20px; /* Adjust the size of the image */
+  height: auto;
+}
+
+
+.mag_img{
+  height: 12px;
+  width: 12px;
+}
+.submit-button {
+  display: flex;
+  align-self: center; 
+  margin-left: 50%;/* Center the button horizontally */
+  background-color: #f6a32e;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px; /* Adjust the margin to position the button */
   
+}
+
+/* note status */
+
+.edit-button {
+  background-color: #f6a32e;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 4px;
+  cursor: pointer;
+}
+
+/* user container */
+.user-container{
+  background: rgba(227, 227, 227, 0.737);
+  z-index: 1;
+}
+
+.orange_overlay {
+   background: #ffa5004a;
+     /* Ensure the overlay is behind other content */
+}
+
+/* status */
+.status_square {
+  /* padding-left: 4px; */
+  /* padding-right: 4px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.user_img{
+height: 75px;
+width: 75px;
+border-radius: 50%;
+margin-top: 10px;
+margin-bottom: 10px;
 }
 
 @media (max-width: 1200px) {
@@ -397,13 +510,23 @@
 .form-group select {
   appearance: none;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 5px; /* Added missing border-radius property */
   border: 1px solid #ccc;
   width: 100%;
   background: url('data:image/svg+xml;utf8,<svg fill="#888" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>') no-repeat right 10px center;
   background-size: 24px;
   cursor: pointer;
 }
+
+.edit-button {
+  background-color: #28a745; /* Change the color as needed */
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
 
 
 
@@ -447,7 +570,7 @@
   border-radius: 5px; /* Rounded corners */
   padding: 20px; /* Padding around the form */
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.4); /* Box shadow for shading */
-  width: 60%; /* Adjust the width as needed */
+  width: 40%; /* Adjust the width as needed */
   margin: 20px auto; /* Center the box horizontally and add 20px of space from the top */
 
 }
@@ -496,18 +619,16 @@
   width: 400px; /* Set width of the box */
   margin: 5px auto 0; /* Center the box horizontally and add spacing to the top */
   text-align: center; /* Center the content inside the box */
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  justify-content: center; /* Center children vertically */
 }
 
-.user-profile-box {
-  border: 1px solid #ccc;
-  border-radius: 10px; /* Apply rounded corners */
-  padding: 20px;
-  background-color: #f9f9f9; /* Add background color */
-}
 
 .confirm-button,
 .logout-button {
-  background-color: #4CAF50; /* Green */
+  background-color: #d4221c; /* Green */
   border: none;
   color: white;
   padding: 10px 20px;
@@ -539,10 +660,9 @@
 /* STATUS */
 
 .container5 {
-  width: 70%; /* Adjust as needed */
+  width: 100%; /* Adjust as needed */
   margin: 3% auto; /* Center the container horizontally */
   padding: 20px; /* Add padding for spacing */
-  background-color: rgb(227, 227, 227); /* Background color of the progress bar */
 
 }
 
@@ -561,11 +681,11 @@
 }
 
 .progress-bar {
-  width: 500px; /* Adjust as needed */
-  height: 20px; /* Adjust as needed */
-  background-color: rgb(227, 227, 227); /* Background color of the progress bar */
+  width: 500px;
+  height: 20px;
+  /* background-color: rgb(227, 227, 227); */
   position: relative;
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 10px;
   width: 100%;
 }
 
