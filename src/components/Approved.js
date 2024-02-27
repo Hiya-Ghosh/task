@@ -96,10 +96,8 @@ const Approved = (props) => {
             </a>
           </li>
           <li>
-            <a className="header" href="/Status"></a>
-            <a className="header" href="/StatusBar">
-              Status
-            </a>
+          <a className="header" href="/Status">Status</a>
+          
           </li>
         </ul>
         <div className="search-box">

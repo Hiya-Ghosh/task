@@ -123,11 +123,11 @@ const Create = (props) => {
         </div>
       </nav>
 
-    <div className="user-container" style={{backgroundImage: `url(${BG_main})`, backgroundSize: 'cover'}}>
+      <div className="user-container" style={{backgroundImage: `url(${BG_main})`, backgroundSize: 'cover', backgroundPosition: 'top', backgroundRepeat: 'no-repeat', marginTop:'-25px'}}>
     <div className="orange_overlay">
-    <div className="outer-box" style={{ backgroundColor: 'white' }}>
-    <div className="my-component">
-      <div className="form-container">
+    <div className="outer-box" style={{ backgroundColor: 'white',marginTop:'2.5%' }}>
+    <div className="my-component" style={{marginTop:'25px'}}>
+      <div className="form-container" >
         <form onSubmit={handleSubmit}>
 
 

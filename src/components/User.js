@@ -58,12 +58,8 @@ const User = (props) => {
                             <label className="input-label">Email: <input type="text" name="email" value={userData.email} onChange={handleInputChange} /></label>
                             <br /><br />
                             {/* Submit button with inline styling */}
-<<<<<<< HEAD
                             <button className="submit-button" type="submit" style={{ marginLeft: '118px',  marginTop: '-20px'  }}>Submit</button>
-
-=======
                             <button className="submit-button" type="submit">Submit</button>
->>>>>>> origin/master
                         </form>
                     ) : (
                         <>
