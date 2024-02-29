@@ -131,6 +131,11 @@ const Create = (props) => {
         <form onSubmit={handleSubmit}>
 
 
+
+
+
+
+
           <div className="form-group">
           <label style={{ display: 'inline-block', width: '120px', textAlign: 'right', marginRight: '10px' }}>Select Date:</label>
           <input
@@ -157,49 +162,49 @@ const Create = (props) => {
 
 
         <div className="form-group">
-  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
-  <input
-    type="text"
-    name="school"
-    value={formData.school}
-    onChange={handleChange}
-    style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
-  />
-</div>
+        <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
+        <input
+          type="text"
+          name="school"
+          value={formData.school}
+          onChange={handleChange}
+          style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+        />
+      </div>
 
 
-          <div className="form-group">
-  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>Subject:</label>
-  <input
-    type="text"
-    name="subject"
-    value={formData.subject}
-    onChange={handleChange}
-    style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
-  />
-</div>
+        <div className="form-group">
+          <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>Subject:</label>
+          <input
+            type="text"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+          />
+        </div>
 
 
-<div className="form-group">
-  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Details:</label>
-  <textarea
-    name="details"
-    value={formData.details}
-    onChange={handleChange}
-    style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
-  />
-</div>
+      <div className="form-group">
+        <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Details:</label>
+        <textarea
+          name="details"
+          value={formData.details}
+          onChange={handleChange}
+          style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
+        />
+      </div>
 
 
-<div className="form-group">
-  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Objective:</label>
-  <textarea
-    name="objective"
-    value={formData.objective}
-    onChange={handleChange}
-    style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
-  />
-</div>
+      <div className="form-group">
+        <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Objective:</label>
+        <textarea
+          name="objective"
+          value={formData.objective}
+          onChange={handleChange}
+          style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
+        />
+      </div>
 
 
           <div className="form-group">
@@ -255,6 +260,9 @@ const Create = (props) => {
                 Others
               </label>
             </form>
+
+
+
 
             {/* For others - dropdown */}
             <div className="form-group">

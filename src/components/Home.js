@@ -5,59 +5,92 @@ import logo from "../images/MUJ-Logo.png";
 import './styles.css';
 import { useState } from 'react';
 
-const Home = (props) => {
 
+//auth/login
+//auth/signup
+
+const Home = (props) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
     };
+
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
     };
-    
+
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        const formData = {
+            email: username,
+            password: password
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                const responseData = await response.json();
+                sessionStorage.setItem('userData', JSON.stringify(responseData));
+                const userDataString = sessionStorage.getItem('userData');
+                console.log('Session Storage Data:', userDataString);
+                console.log('Login successful');
+            } else {
+                console.error('Login failed');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    };
+
     return (
-
-    <div className="imageContainer">
-        <img class="backgroundImage" src={BG_main} />  
-        <div className="centeredDiv">
-            <img class="back" src={logo} />  
+        <div className="imageContainer">
+            <img className="backgroundImage" src={BG_main} alt="Background" />
+            <div className="centeredDiv">
+                <img className="back" src={logo} alt="Logo" />
                 <div className="centeredDiv2">
+                    <form onSubmit={handleSubmit}>
+                        <div>
+                            <div className='text'>
+                                <span> Enter NMS ID</span>
+                            </div>
+                            <div className="underline-input">
+                                <input
+                                    type="text"
+                                    value={username}
+                                    onChange={handleUsernameChange}
+                                />
+                            </div>
 
-                <div>
-                    <div  className='text'>
-                        <span> Enter NMS ID</span>
-                    </div>
-                    <div className="underline-input">
-                        <input
-                        type="text"
-                        value={username}
-                        onChange={handleUsernameChange}
-                        />
-                    </div>
-
-                    <div  className='text'>
-                        <span> Enter your Password</span>
-                    </div>
-                    <div className="underline-input">
-                        <input
-                        type="password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                        />
-                    </div>
+                            <div className='text'>
+                                <span> Enter your Password</span>
+                            </div>
+                            <div className="underline-input">
+                                <input
+                                    type="password"
+                                    value={password}
+                                    onChange={handlePasswordChange}
+                                />
+                            </div>
+                        </div>
+                        <div>
+                            <button type="submit" className='text1'>Login</button>
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <a class="container" id="btn"  href="/Main"><button className='text1'>Login</button></a>
-                </div>
+                {/* <a className="container" id="btn" href="/Main"><button>Press me</button></a> */}
             </div>
-            {/* <a class="container" id="btn"  href="/Main"><button>Press me</button></a> */}
-        </div>  
-    </div>  
-
-    )
-
-    
+        </div>
+    );
 } 
 
 export default Home;

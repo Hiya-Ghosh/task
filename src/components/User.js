@@ -59,7 +59,6 @@ const User = (props) => {
                             <br /><br />
                             {/* Submit button with inline styling */}
                             <button className="submit-button" type="submit" style={{ marginLeft: '118px',  marginTop: '-20px'  }}>Submit</button>
-                            <button className="submit-button" type="submit">Submit</button>
                         </form>
                     ) : (
                         <>
