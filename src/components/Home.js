@@ -68,10 +68,10 @@ const Home = (props) => {
 
                     <div className="centered-container">
                     <div>
-                        <div className='text'>
+                        <div className='text' style={{ marginTop: '25px',marginLeft:"-50%"}}>
                         <span> Enter NMS ID</span>
                         </div>
-                        <div className="underline-input">
+                        <div className="underline-input" style={{ marginLeft:"-50%"}}>
                         <input
                             type="text"
                             value={username}
@@ -79,10 +79,10 @@ const Home = (props) => {
                         />
                         </div>
 
-                        <div className='text' style={{ marginTop: '25px' }}>
+                        <div className='text' style={{ marginTop: '25px',marginLeft:"-50%"}}>
                         <span> Enter your Password</span>
                         </div>
-                        <div className="underline-input">
+                        <div className="underline-input" style={{ marginLeft:"-50%"}}>
                         <input
                             type="password"
                             value={password}

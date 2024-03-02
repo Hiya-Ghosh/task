@@ -20,13 +20,18 @@
 }
 .centered-container {
   margin-top: 10%;
- margin-left: 29%;
+ margin-left: 20%;
   height: 32vh; /* Adjust height as needed */
 }
 
 .login-home{
   margin-top: -20%;
-  margin-left: 29%;
+  margin-left: -15%;
+}
+
+.text{
+  font-size: large;
+  color: black;
 }
 
 .text1 {
@@ -69,12 +74,7 @@
     padding-top: 2%;
 }
 
-.text {
-    position: relative;
-    margin:5%;
-    font-size: 1.5vw;
-    color: #333; 
-}
+
 .text1 {
     position: relative;
     margin-top:3% ;
@@ -259,7 +259,7 @@
     border: none;
     background-color: transparent;
     border-bottom: 1px solid black;
-    width: 90%;
+    width: 40%;
     padding: 8px;
     margin-bottom: 10px;
     outline: none;
@@ -766,6 +766,9 @@ margin-bottom: 10px;
 .incomplete {
   background-color: red; /* Color of incomplete milestones */
 }
+
+
+
 
 
 

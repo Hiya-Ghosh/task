@@ -14,6 +14,12 @@ import mag from "../images/mag-glass.png";
 const Create = (props) => {
   const [cards, setCards] = useState([]);
 
+  const handleClick = () => {
+    // Display popup
+    alert("NoteSheet has been created");
+    // You can use other methods like window.alert(), window.confirm(), or custom modal libraries for a nicer popup
+  };
+
   const handleAddCard = () => {
     const newCard = (
       <div className="card1" key={cards.length}>
@@ -36,6 +42,19 @@ const Create = (props) => {
   };
 
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [facultyDictionary, setFacultyDictionary] = useState({
+    0: 'Dr. Rajesh Kumar',
+    1: 'Prof. Sunita Sharma',
+    2: 'Dr. Rakesh Singh',
+    3: 'Prof. Priya Patel',
+    4: 'Dr. Mohan Gupta',
+    5: 'Prof. Geeta Verma',
+    6: 'Dr. Manoj Tiwari',
+    7: 'Prof. Neha Singh',
+    8: 'Dr. Anil Kumar',
+    9: 'Prof. Rashmi Gupta'
+  });
+  
   const [facultyNames] = useState([
     'Dr. Rajesh Kumar',
     'Prof. Sunita Sharma',
@@ -48,6 +67,9 @@ const Create = (props) => {
     'Dr. Anil Kumar',
     'Prof. Rashmi Gupta'
   ]);
+
+  
+  
 
   const handleChange1 = (e) => {
     const { value, checked } = e.target;
@@ -201,25 +223,28 @@ const Create = (props) => {
 </div>
 
 
-          <div className="form-group">
-            <label>Proposed By 1:</label>
-            <input
-              type="text"
-              name="proposedBy1"
-              value={formData.proposedBy1}
-              onChange={handleChange}
-            />
-          </div>
 
-          <div className="form-group" >
-            <label>Proposed By 2:</label>
-            <input
-              type="text"
-              name="proposedBy2"
-              value={formData.proposedBy2}
-              onChange={handleChange}
-            />
-          </div>
+          <div className="form-group">
+          <label>Proposed By 1:</label>
+              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
+                <option value="">Select Faculty</option>
+                {facultyNames.map((name, index) => (
+                  <option key={index} value={name}>{name}</option>
+                ))}
+              </select>
+            </div>
+
+            <div className="form-group">
+          <label>Proposed By 2:</label>
+              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
+                <option value="">Select Faculty</option>
+                {facultyNames.map((name, index) => (
+                  <option key={index} value={name}>{name}</option>
+                ))}
+              </select>
+            </div>
+         
+          
 
           <div style={{  marginTop: '20px', marginBottom: '20px',paddingBottom:'20px',paddingTop:'20px' }}>
             <span><b>Select Authorities for approval</b></span>
@@ -273,12 +298,12 @@ const Create = (props) => {
 
               <span>Send to faculty 1*</span>
               <div className="form-group">
-                <input
-                  type="text"
-                  name="proposedBy1"
-                  value={formData.proposedBy1}
-                  onChange={handleChange}
-                />
+              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
+                <option value=""></option>
+                {facultyNames.map((name, index) => (
+                  <option key={index} value={name}>{name}</option>
+                ))}
+              </select>
               </div>
 
               <div className="arrow-down-container">
@@ -287,12 +312,12 @@ const Create = (props) => {
 
               <span>Send to faculty 2*</span>
               <div className="form-group">
-                <input
-                  type="text"
-                  name="proposedBy1"
-                  value={formData.proposedBy1}
-                  onChange={handleChange}
-                />
+              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
+                <option value=""></option>
+                {facultyNames.map((name, index) => (
+                  <option key={index} value={name}>{name}</option>
+                ))}
+              </select>
               </div>
 
             </div>
@@ -304,7 +329,8 @@ const Create = (props) => {
             {cards}
             <div className="button-container" style={{  marginTop: '5px', marginBottom: '15px' }}><button  onClick={handleAddCard}>Add Approvers</button></div>
           </div>
-          <div className="button-container"><button type="submit">Submit</button></div>
+         
+          <div className="button-container" ><button type="submit" onClick={handleClick} >Submit</button></div>
       
         </form>
       </div>
