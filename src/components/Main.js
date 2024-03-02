@@ -18,64 +18,62 @@ const Main = (props) => {
       setSelectedIds([...selectedIds, id]);
     }
   };
-
   const cardsData = [
     {
       id: 1,
-      heading: "Card 1",
-      date: "February 4, 2024",
-      permission: "Approved",
-      assign: "Prof. Amit Garg",
+      heading: 'To host Gate session',
+      date: 'February 4, 2024',
+      permission: 'Approved',
+      assign: 'Prof. Amit Garg',
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
+        'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     },
     {
       id: 2,
-      heading: "Card 2",
-      date: "February 5, 2024",
-      permission: "Approved",
-      assign: "Prof. Amit Garg",
+      heading: 'Onerios 23',
+      date: 'February 5, 2024',
+      permission: 'Approved',
+      assign: 'Prof. Amit Garg',
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
+      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     },
     {
       id: 3,
-      heading: "Card 3",
-      date: "February 4, 2024",
-      permission: "Approved",
-      assign: "Prof. Amit Garg",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
+      heading: 'Cyber security seminar',
+      date: 'February 4, 2024',
+      permission: 'Approved',
+      assign: 'Prof. Amit Garg',
+      details:  'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     },
     {
       id: 4,
-      heading: "Card 4",
+      heading: "Tech fest Techideate",
       date: "February 5, 2024",
       permission: "Pending",
       assign: "Prof. Amit Garg",
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
+      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     },
     {
       id: 5,
-      heading: "Card 5",
-      date: "February 5, 2024",
-      permission: "Pending",
-      assign: "Prof. Amit Garg",
+      heading: 'Cultural fest Reevz',
+      date: 'February 5, 2024',
+      permission: 'Pending',
+      assign: 'Prof. Amit Garg',
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
+      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     },
     {
       id: 6,
-      heading: "Card 6",
-      date: "February 5, 2024",
-      permission: "Pending",
-      assign: "Prof. Amit Garg",
+      heading: 'Sports fest Abivrata',
+      date: 'February 5, 2024',
+      permission: 'Pending',
+      assign: 'Prof. Amit Garg',
       details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
+      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     },
   ];
-
+  
   return (
     <div className="full-display">
       <nav className="navbar">
@@ -168,7 +166,7 @@ const Main = (props) => {
               >
                 <div className="tick_container">
                   <img className="tick_img" src={tick} alt="tick" />
-                  <div className="container_text">Approve</div>
+                  <div className="container_text">Approved</div>
                 </div>
               </button>
               <button

@@ -9,14 +9,41 @@
 /* HOME PAGE */
 .imageContainer {
     position: relative;
+    overflow: hidden;
+
 }
   
 .backgroundImage {
-    width: 100%; 
+    width: 105%; 
     height: auto;
     display: block;
 }
-  
+.centered-container {
+  margin-top: 10%;
+ margin-left: 29%;
+  height: 32vh; /* Adjust height as needed */
+}
+
+.login-home{
+  margin-top: -20%;
+  margin-left: 29%;
+}
+
+.text1 {
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px; /* Adjust the value to make the edges more or less circular */
+  background-color: #ffffff; /* Change the background color to your preference */
+  color: #fff; /* Change the text color to your preference */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.text1:hover {
+  background-color: #acadaf; /* Change the background color on hover */
+}
+
 .centeredDiv {
     position: absolute;
     top: 50%;
@@ -160,6 +187,8 @@
     justify-content: space-between;
     margin-top: 5px;
 }
+
+
   
   .tick {
     padding: 0.5rem;
@@ -230,12 +259,17 @@
     border: none;
     background-color: transparent;
     border-bottom: 1px solid black;
-    width: 35%;
+    width: 90%;
     padding: 8px;
     margin-bottom: 10px;
     outline: none;
   }
   
+
+
+
+
+
 
   /* CREATE */
   .form-container {
@@ -246,7 +280,7 @@
   }
   
   form {
-    width: 300px; /* Adjust the width as needed */
+    width: 480px; /* Adjust the width as needed */
   }
   
   .form-group {
@@ -350,6 +384,9 @@
   margin-top: 20px; /* Adjust the margin to position the button */
   
 }
+
+
+
 
 /* note status */
 
@@ -485,7 +522,6 @@ margin-bottom: 10px;
 /* Your existing CSS styles */
 /* Add additional styles for the form container and dropdown */
 .form-container {
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
@@ -536,39 +572,6 @@ margin-bottom: 10px;
 
 
 /* CREATE */
-/* ARROW */
-.arrow-down-container {
-  display: flex;
-  align-items: center;
-  height: 100px; /* Adjust height as needed */
-  position: relative;
-}
-
-.arrow-down {
-  position: absolute;
-  top: 50%; /* Position the arrow vertically centered */
-  transform: translateY(50%);
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-top: 20px solid black; /* Adjust color and size as needed */
-  left: calc(50% - 20px); /* Position the arrow exactly between the two input boxes */
-  z-index: 1; /* Ensure the arrow is above other elements */
-}
-
-.arrow-down::before {
-  content: '';
-  position: absolute;
-  top: -50px; /* Position the line above the arrow */
-  left: 50%; /* Position the line horizontally centered */
-  transform: translateX(-50%);
-  width: 2px; /* Adjust the width as needed */
-  height: 50px; /* Adjust the height as needed */
-  background-color: black; /* Adjust color as needed */
-  z-index: 0; /* Ensure the line is below the arrow */
-}
-
 
 .outer-box {
   border: 1px solid #ccc; /* Border style */
@@ -579,6 +582,42 @@ margin-bottom: 10px;
   margin: 20px auto; /* Center the box horizontally and add 20px of space from the top */
 
 }
+
+/* CREATE */
+/* ARROW */
+.arrow-down-container {
+  display: flex;
+  align-items: center;
+  height: 80px; /* Adjust height as needed */
+  position: relative;
+}
+
+.arrow-down {
+  position: absolute;
+  top: calc(10vh - 60px);
+  left: 50%; /* Center the arrow horizontally */
+  transform: translateX(-50%); /* Center the arrow horizontally */
+  width: 0;
+  height: 30px;
+  border: 2px solid;
+  border-radius: 2px;
+}
+
+
+.arrow-down::before {
+  content: " ";
+  position: absolute;
+  top: 12px;
+  left: -10px;
+  width: 16px;
+  height: 16px;
+  border-bottom: 4px solid;
+  border-right: 4px solid;
+  border-radius: 4px;
+  transform: rotateZ(45deg);
+}
+
+
 
 .button-container {
   margin-top: 20px; /* Adjust as needed */
@@ -727,3 +766,7 @@ margin-bottom: 10px;
 .incomplete {
   background-color: red; /* Color of incomplete milestones */
 }
+
+
+
+

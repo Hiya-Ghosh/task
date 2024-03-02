@@ -20,14 +20,13 @@ const Create = (props) => {
         <div className="arrow-down-container">
           <div className="arrow-down"></div>
         </div>
-        <span>Send to faculty 1*</span>
+        <span>Send to faculty 3*</span>
         <div className="form-group">
           <input
             type="text"
             name="proposedBy1"
             value={''} // Assuming formData is managed somewhere else or provide a default value
             // onChange={handleChange} // Assuming handleChange is defined somewhere else
-            placeholder="Enter value"
           />
         </div>
       </div>
@@ -123,17 +122,12 @@ const Create = (props) => {
         </div>
       </nav>
 
-      <div className="user-container" style={{backgroundImage: `url(${BG_main})`, backgroundSize: 'cover', backgroundPosition: 'top', backgroundRepeat: 'no-repeat', marginTop:'-25px'}}>
+      <div className="user-container" style={{backgroundImage: `url(${BG_main})`, backgroundSize: 'cover', backgroundPosition: 'top', backgroundRepeat: 'repeat', marginTop:'-30px'}}>
     <div className="orange_overlay">
     <div className="outer-box" style={{ backgroundColor: 'white',marginTop:'2.5%' }}>
     <div className="my-component" style={{marginTop:'25px'}}>
       <div className="form-container" >
         <form onSubmit={handleSubmit}>
-
-
-
-
-
 
 
           <div className="form-group">
@@ -162,49 +156,49 @@ const Create = (props) => {
 
 
         <div className="form-group">
-        <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
-        <input
-          type="text"
-          name="school"
-          value={formData.school}
-          onChange={handleChange}
-          style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
-        />
-      </div>
+  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
+  <input
+    type="text"
+    name="school"
+    value={formData.school}
+    onChange={handleChange}
+    style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+  />
+</div>
 
 
-        <div className="form-group">
-          <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>Subject:</label>
-          <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
-          />
-        </div>
+          <div className="form-group">
+  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>Subject:</label>
+  <input
+    type="text"
+    name="subject"
+    value={formData.subject}
+    onChange={handleChange}
+    style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+  />
+</div>
 
 
-      <div className="form-group">
-        <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Details:</label>
-        <textarea
-          name="details"
-          value={formData.details}
-          onChange={handleChange}
-          style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
-        />
-      </div>
+<div className="form-group">
+  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Details:</label>
+  <textarea
+    name="details"
+    value={formData.details}
+    onChange={handleChange}
+    style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
+  />
+</div>
 
 
-      <div className="form-group">
-        <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Objective:</label>
-        <textarea
-          name="objective"
-          value={formData.objective}
-          onChange={handleChange}
-          style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
-        />
-      </div>
+<div className="form-group">
+  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Objective:</label>
+  <textarea
+    name="objective"
+    value={formData.objective}
+    onChange={handleChange}
+    style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
+  />
+</div>
 
 
           <div className="form-group">
@@ -217,7 +211,7 @@ const Create = (props) => {
             />
           </div>
 
-          <div className="form-group">
+          <div className="form-group" >
             <label>Proposed By 2:</label>
             <input
               type="text"
@@ -227,10 +221,10 @@ const Create = (props) => {
             />
           </div>
 
-          <div style={{  marginTop: '5px', marginBottom: '15px' }}>
+          <div style={{  marginTop: '20px', marginBottom: '20px',paddingBottom:'20px',paddingTop:'20px' }}>
             <span><b>Select Authorities for approval</b></span>
             <form>
-              <label>
+              <label style={{  marginTop: '20px' }}>
                 <input
                   type="checkbox"
                   value="Director"
@@ -260,9 +254,6 @@ const Create = (props) => {
                 Others
               </label>
             </form>
-
-
-
 
             {/* For others - dropdown */}
             <div className="form-group">
@@ -294,7 +285,7 @@ const Create = (props) => {
                 <div className="arrow-down"></div>
               </div>
 
-              <span>Send to faculty 1*</span>
+              <span>Send to faculty 2*</span>
               <div className="form-group">
                 <input
                   type="text"
@@ -313,7 +304,6 @@ const Create = (props) => {
             {cards}
             <div className="button-container" style={{  marginTop: '5px', marginBottom: '15px' }}><button  onClick={handleAddCard}>Add Approvers</button></div>
           </div>
-          <ImageUploadForm />
           <div className="button-container"><button type="submit">Submit</button></div>
       
         </form>

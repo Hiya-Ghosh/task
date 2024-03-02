@@ -37,19 +37,24 @@ const Home = (props) => {
                 },
                 body: JSON.stringify(formData)
             });
-
+        
             if (response.ok) {
                 const responseData = await response.json();
                 sessionStorage.setItem('userData', JSON.stringify(responseData));
                 const userDataString = sessionStorage.getItem('userData');
                 console.log('Session Storage Data:', userDataString);
                 console.log('Login successful');
+        
+                // Redirect the user to a specific URL
+                window.location.href = '/Main';
             } else {
-                console.error('Login failed');
+                    console.error('Login failed');
+                    alert('Invalid credentials. Please try again.');
             }
         } catch (error) {
             console.error('Error:', error);
         }
+        
     };
 
     return (
@@ -59,30 +64,38 @@ const Home = (props) => {
                 <img className="back" src={logo} alt="Logo" />
                 <div className="centeredDiv2">
                     <form onSubmit={handleSubmit}>
-                        <div>
-                            <div className='text'>
-                                <span> Enter NMS ID</span>
-                            </div>
-                            <div className="underline-input">
-                                <input
-                                    type="text"
-                                    value={username}
-                                    onChange={handleUsernameChange}
-                                />
-                            </div>
 
-                            <div className='text'>
-                                <span> Enter your Password</span>
-                            </div>
-                            <div className="underline-input">
-                                <input
-                                    type="password"
-                                    value={password}
-                                    onChange={handlePasswordChange}
-                                />
-                            </div>
+
+                    <div className="centered-container">
+                    <div>
+                        <div className='text'>
+                        <span> Enter NMS ID</span>
                         </div>
-                        <div>
+                        <div className="underline-input">
+                        <input
+                            type="text"
+                            value={username}
+                            onChange={handleUsernameChange}
+                        />
+                        </div>
+
+                        <div className='text' style={{ marginTop: '25px' }}>
+                        <span> Enter your Password</span>
+                        </div>
+                        <div className="underline-input">
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={handlePasswordChange}
+                        />
+                        </div>
+                    </div>
+                    </div>
+
+
+
+
+                        <div className='login-home'>
                             <button type="submit" className='text1'>Login</button>
                         </div>
                     </form>

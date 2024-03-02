@@ -58,7 +58,7 @@ const User = (props) => {
                             <label className="input-label">Email: <input type="text" name="email" value={userData.email} onChange={handleInputChange} /></label>
                             <br /><br />
                             {/* Submit button with inline styling */}
-                            <button className="submit-button" type="submit" style={{ marginLeft: '118px',  marginTop: '-20px'  }}>Submit</button>
+                            <button class="submit-button" type="submit"  style={{marginLeft: '118px',marginTop: '-20px',borderRadius: '5px'}}>Submit</button>
                         </form>
                     ) : (
                         <>
@@ -79,11 +79,11 @@ const User = (props) => {
                             <label>Email: {userData.email}</label>
                             <br /><br />
                             {/* Edit button with inline styling */}
-                            <button className="edit-button" onClick={() => setEditMode(true)}>Edit</button>
+                            <button className="edit-button" style={{borderRadius: '5px'}} onClick={() => setEditMode(true)}>Edit</button>
                         </>
                     )}
                     {/* Logout button */}
-                    <button className="logout-button" type="button" onClick={() => console.log("Logout")}>Logout</button>
+                    <button className="logout-button" style={{borderRadius: '5px'}} type="button" onClick={() => console.log("Logout")}>Logout</button>
                 </div>
             </div>
             </div>
