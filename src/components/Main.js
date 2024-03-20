@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import "./styles.css";
 import profileImage from "../images/user.png";
 import tick from "../images/approve.png";
@@ -6,9 +6,37 @@ import fwd from "../images/fwd.png";
 import remark from "../images/remark.svg";
 import meet from "../images/meet.svg";
 import mag from "../images/mag-glass.png";
+import defaultProfileImage from "../images/user.png";
 
 const Main = (props) => {
   const [selectedIds, setSelectedIds] = useState([]);
+  const [cardsData, setCardsData] = useState([]);
+
+  useEffect(() => {
+    const storedUserData = JSON.parse(sessionStorage.getItem('userData'));
+    const url = 'http://localhost:3000/student/notesheets';
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ studentId: storedUserData.userId })
+    })
+        .then(response => response.json())
+        .then(response => {
+          const newCardsData = response?.notesheets.map(note => ({
+            id: note?.nid,
+            heading: note?.subject,
+            date: note?.eventDate,
+            permission: note?.status,
+            assign: note.teachers?.map(teacher => teacher.name).join(', '),
+            details: note?.details,
+          }));
+          console.log(cardsData);
+          setCardsData(newCardsData)
+        })
+        .catch(error => console.error('Error:', error));
+  }, []);
 
   const handleTickClick = (id) => {
     // Toggle the selection
@@ -18,61 +46,61 @@ const Main = (props) => {
       setSelectedIds([...selectedIds, id]);
     }
   };
-  const cardsData = [
-    {
-      id: 1,
-      heading: 'To host Gate session',
-      date: 'February 4, 2024',
-      permission: 'Approved',
-      assign: 'Prof. Amit Garg',
-      details:
-        'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 2,
-      heading: 'Onerios 23',
-      date: 'February 5, 2024',
-      permission: 'Approved',
-      assign: 'Prof. Amit Garg',
-      details:
-      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 3,
-      heading: 'Cyber security seminar',
-      date: 'February 4, 2024',
-      permission: 'Approved',
-      assign: 'Prof. Amit Garg',
-      details:  'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 4,
-      heading: "Tech fest Techideate",
-      date: "February 5, 2024",
-      permission: "Pending",
-      assign: "Prof. Amit Garg",
-      details:
-      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 5,
-      heading: 'Cultural fest Reevz',
-      date: 'February 5, 2024',
-      permission: 'Pending',
-      assign: 'Prof. Amit Garg',
-      details:
-      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 6,
-      heading: 'Sports fest Abivrata',
-      date: 'February 5, 2024',
-      permission: 'Pending',
-      assign: 'Prof. Amit Garg',
-      details:
-      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-  ];
+  // const cardsData = [
+  //   {
+  //     id: 1,
+  //     heading: 'To host Gate session',
+  //     date: 'February 4, 2024',
+  //     permission: 'Approved',
+  //     assign: 'Prof. Amit Garg',
+  //     details:
+  //       'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  //   },
+  //   {
+  //     id: 2,
+  //     heading: 'Onerios 23',
+  //     date: 'February 5, 2024',
+  //     permission: 'Approved',
+  //     assign: 'Prof. Amit Garg',
+  //     details:
+  //     'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  //   },
+  //   {
+  //     id: 3,
+  //     heading: 'Cyber security seminar',
+  //     date: 'February 4, 2024',
+  //     permission: 'Approved',
+  //     assign: 'Prof. Amit Garg',
+  //     details:  'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  //   },
+  //   {
+  //     id: 4,
+  //     heading: "Tech fest Techideate",
+  //     date: "February 5, 2024",
+  //     permission: "Pending",
+  //     assign: "Prof. Amit Garg",
+  //     details:
+  //     'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  //   },
+  //   {
+  //     id: 5,
+  //     heading: 'Cultural fest Reevz',
+  //     date: 'February 5, 2024',
+  //     permission: 'Pending',
+  //     assign: 'Prof. Amit Garg',
+  //     details:
+  //     'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  //   },
+  //   {
+  //     id: 6,
+  //     heading: 'Sports fest Abivrata',
+  //     date: 'February 5, 2024',
+  //     permission: 'Pending',
+  //     assign: 'Prof. Amit Garg',
+  //     details:
+  //     'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+  //   },
+  // ];
   
   return (
     <div className="full-display">
