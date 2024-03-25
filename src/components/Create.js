@@ -5,92 +5,21 @@ import BG_main from "../images/BG_main.png"; // Import background image
 
 
 import profileImage from "../images/user.png";
-import tick from "../images/approve.png";
-import fwd from "../images/fwd.png";
-import remark from "../images/remark.svg";
-import meet from "../images/meet.svg";
 import mag from "../images/mag-glass.png";
 
 const Create = (props) => {
-  const [cards, setCards] = useState([]);
-
-  const handleClick = () => {
-    // Display popup
-    alert("NoteSheet has been created");
-    // You can use other methods like window.alert(), window.confirm(), or custom modal libraries for a nicer popup
-  };
-
-  const handleAddCard = () => {
-    const newCard = (
-      <div className="card1" key={cards.length}>
-        <div className="arrow-down-container">
-          <div className="arrow-down"></div>
-        </div>
-        <span>Send to faculty 3*</span>
-        <div className="form-group">
-          <input
-            type="text"
-            name="proposedBy1"
-            value={''} // Assuming formData is managed somewhere else or provide a default value
-            // onChange={handleChange} // Assuming handleChange is defined somewhere else
-          />
-        </div>
-      </div>
-    );
-
-    setCards([...cards, newCard]);
-  };
-
+  const [proposedBy, setProposedBy] = useState('');
   const [selectedOptions, setSelectedOptions] = useState([]);
-  const [facultyDictionary, setFacultyDictionary] = useState({
-    0: 'Dr. Rajesh Kumar',
-    1: 'Prof. Sunita Sharma',
-    2: 'Dr. Rakesh Singh',
-    3: 'Prof. Priya Patel',
-    4: 'Dr. Mohan Gupta',
-    5: 'Prof. Geeta Verma',
-    6: 'Dr. Manoj Tiwari',
-    7: 'Prof. Neha Singh',
-    8: 'Dr. Anil Kumar',
-    9: 'Prof. Rashmi Gupta'
-  });
-  
-  const [facultyNames] = useState([
-    'Dr. Rajesh Kumar',
-    'Prof. Sunita Sharma',
-    'Dr. Rakesh Singh',
-    'Prof. Priya Patel',
-    'Dr. Mohan Gupta',
-    'Prof. Geeta Verma',
-    'Dr. Manoj Tiwari',
-    'Prof. Neha Singh',
-    'Dr. Anil Kumar',
-    'Prof. Rashmi Gupta'
-  ]);
-
-  
-  
-
-  const handleChange1 = (e) => {
-    const { value, checked } = e.target;
-
-    if (checked) {
-      setSelectedOptions([...selectedOptions, value]);
-    } else {
-      setSelectedOptions(selectedOptions.filter((option) => option !== value));
-    }
-  };
-
   const [formData, setFormData] = useState({
-    date: '',
+    studentId: 1,
+    eventDate: '',
     school: '',
-    department: '',
+    department: "CSE",
     subject: '',
-    description: '',
+    description: 'xyz',
     details: '',
-    objective: '',
-    proposedBy1: '',
-    proposedBy2: '',
+    objectives: '',
+    teachers: [1, 2]
   });
 
   const handleChange = (event) => {
@@ -100,15 +29,58 @@ const Create = (props) => {
       [name]: value,
     });
   };
+  
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('Form submitted:', formData);
+  const handleCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+
+    if (checked) {
+      setSelectedOptions([...selectedOptions, value]);
+    } else {
+      setSelectedOptions(selectedOptions.filter((option) => option !== value));
+    }
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+  
+    const proposers = [...selectedOptions, proposedBy];
+  
+    const requestBody = {
+      ...formData,
+      proposers: proposers,
+    };
+  
+    try {
+      const response = await fetch('http://localhost:3001/student/new', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(requestBody),
+      });
+  
+      if (response.ok) {
+        const responseData = await response.json();
+        console.log('Response:', responseData);
+        // Handle successful response here
+  
+        // Show the popup
+        alert('NoteSheet created');
+      } else {
+        console.error('Error:', response.statusText);
+        // Handle error response here
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Handle network error here
+    }
+  };
+  
 
   return (
     <div>
-    <nav className="navbar" style={{ marginBottom: '0' }}>
+      <nav className="navbar" style={{ marginBottom: '0' }}>
         <ul>
           <li>
             <a className="header" href="/Main">
@@ -145,200 +117,110 @@ const Create = (props) => {
       </nav>
 
       <div className="user-container" style={{backgroundImage: `url(${BG_main})`, backgroundSize: 'cover', backgroundPosition: 'top', backgroundRepeat: 'repeat', marginTop:'-30px'}}>
-    <div className="orange_overlay">
-    <div className="outer-box" style={{ backgroundColor: 'white',marginTop:'2.5%' }}>
-    <div className="my-component" style={{marginTop:'25px'}}>
-      <div className="form-container" >
-        <form onSubmit={handleSubmit}>
-
-
-          <div className="form-group">
-          <label style={{ display: 'inline-block', width: '120px', textAlign: 'right', marginRight: '10px' }}>Select Date:</label>
-          <input
-            className='wide-input'
-            type="date"
-            name="date"
-            value={formData.date}
-            onChange={handleChange}
-            style={{ display: 'inline-block', width: 'calc(100% - 130px)' }}
-          />
-        </div>
-
-
-          <div className="form-group">
-          <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
-          <input
-            type="text"
-            name="school"
-            value={formData.school}
-            onChange={handleChange}
-            style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
-          />
-        </div>
-
-
-        <div className="form-group">
-  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
-  <input
-    type="text"
-    name="school"
-    value={formData.school}
-    onChange={handleChange}
-    style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
-  />
-</div>
-
-
-          <div className="form-group">
-  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>Subject:</label>
-  <input
-    type="text"
-    name="subject"
-    value={formData.subject}
-    onChange={handleChange}
-    style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
-  />
-</div>
-
-
-<div className="form-group">
-  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Details:</label>
-  <textarea
-    name="details"
-    value={formData.details}
-    onChange={handleChange}
-    style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
-  />
-</div>
-
-
-<div className="form-group">
-  <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Objective:</label>
-  <textarea
-    name="objective"
-    value={formData.objective}
-    onChange={handleChange}
-    style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
-  />
-</div>
-
-
-
-          <div className="form-group">
-          <label>Proposed By 1:</label>
-              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
-                <option value="">Select Faculty</option>
-                {facultyNames.map((name, index) => (
-                  <option key={index} value={name}>{name}</option>
-                ))}
-              </select>
-            </div>
-
-            <div className="form-group">
-          <label>Proposed By 2:</label>
-              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
-                <option value="">Select Faculty</option>
-                {facultyNames.map((name, index) => (
-                  <option key={index} value={name}>{name}</option>
-                ))}
-              </select>
-            </div>
-         
-          
-
-          <div style={{  marginTop: '20px', marginBottom: '20px',paddingBottom:'20px',paddingTop:'20px' }}>
-            <span><b>Select Authorities for approval</b></span>
-            <form>
-              <label style={{  marginTop: '20px' }}>
-                <input
-                  type="checkbox"
-                  value="Director"
-                  checked={selectedOptions.includes('Director')}
-                  onChange={handleChange1}
-                />
-                Director
-              </label>
-              <br />
-              <label>
-                <input
-                  type="checkbox"
-                  value="HOD"
-                  checked={selectedOptions.includes('HOD')}
-                  onChange={handleChange1}
-                />
-                HOD
-              </label>
-              <br />
-              <label>
-                <input
-                  type="checkbox"
-                  value="Others"
-                  checked={selectedOptions.includes('Others')}
-                  onChange={handleChange1}
-                />
-                Others
-              </label>
-            </form>
-
-            {/* For others - dropdown */}
-            <div className="form-group">
-              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
-                <option value="">Select Faculty</option>
-                {facultyNames.map((name, index) => (
-                  <option key={index} value={name}>{name}</option>
-                ))}
-              </select>
-            </div>
-
-            <div  style={{  marginTop: '5px', marginBottom: '15px' }}>
-              <span><b>Add Flowchart for Approval</b></span>
-            </div>
-
-            <div>
-
-              <span>Send to faculty 1*</span>
-              <div className="form-group">
-              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
-                <option value=""></option>
-                {facultyNames.map((name, index) => (
-                  <option key={index} value={name}>{name}</option>
-                ))}
-              </select>
+        <div className="orange_overlay">
+          <div className="outer-box" style={{ backgroundColor: 'white',marginTop:'2.5%' }}>
+            <div className="my-component" style={{marginTop:'25px'}}>
+              <div className="form-container" >
+                <form onSubmit={handleSubmit}>
+                  <div className="form-group">
+                    <label style={{ display: 'inline-block', width: '120px', textAlign: 'right', marginRight: '10px' }}>Select Date:</label>
+                    <input
+                      className='wide-input'
+                      type="date"
+                      name="eventDate"
+                      value={formData.eventDate}
+                      onChange={handleChange}
+                      style={{ display: 'inline-block', width: 'calc(100% - 130px)' }}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>School:</label>
+                    <input
+                      type="text"
+                      name="school"
+                      value={formData.school}
+                      onChange={handleChange}
+                      style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px' }}>Subject:</label>
+                    <input
+                      type="text"
+                      name="subject"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      style={{ display: 'inline-block', width: 'calc(100% - 110px)' }}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Details:</label>
+                    <textarea
+                      name="details"
+                      value={formData.details}
+                      onChange={handleChange}
+                      style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label style={{ display: 'inline-block', width: '100px', textAlign: 'right', marginRight: '10px', verticalAlign: 'top' }}>Objective:</label>
+                    <textarea
+                      name="objectives"
+                      value={formData.objectives}
+                      onChange={handleChange}
+                      style={{ display: 'inline-block', width: 'calc(100% - 110px)', verticalAlign: 'top' }}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <label>Proposed By:</label>
+                    <input
+                      type="text"
+                      name="proposedBy"
+                      value={proposedBy}
+                      onChange={(e) => setProposedBy(e.target.value)}
+                    />
+                  </div>
+                  <div style={{  marginTop: '20px', marginBottom: '20px',paddingBottom:'20px',paddingTop:'20px' }}>
+                    <span><b>Select Authorities for approval</b></span>
+                    <div>
+                      <label style={{  marginTop: '20px' }}>
+                        <input
+                          type="checkbox"
+                          value="Director"
+                          checked={selectedOptions.includes('Director')}
+                          onChange={handleCheckboxChange}
+                        />
+                        Director
+                      </label>
+                      <br />
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="HOD"
+                          checked={selectedOptions.includes('HOD')}
+                          onChange={handleCheckboxChange}
+                        />
+                        HOD
+                      </label>
+                      <br />
+                      <label>
+                        <input
+                          type="checkbox"
+                          value="Others"
+                          checked={selectedOptions.includes('Others')}
+                          onChange={handleCheckboxChange}
+                        />
+                        Others
+                      </label>
+                    </div>
+                  </div>
+                  <div className="button-container" ><button type="submit">Submit</button></div>
+                </form>
               </div>
-
-              <div className="arrow-down-container">
-                <div className="arrow-down"></div>
-              </div>
-
-              <span>Send to faculty 2*</span>
-              <div className="form-group">
-              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
-                <option value=""></option>
-                {facultyNames.map((name, index) => (
-                  <option key={index} value={name}>{name}</option>
-                ))}
-              </select>
-              </div>
-
             </div>
-
           </div>
-
-         
-          <div className="app">
-            {cards}
-            <div className="button-container" style={{  marginTop: '5px', marginBottom: '15px' }}><button  onClick={handleAddCard}>Add Approvers</button></div>
-          </div>
-         
-          <div className="button-container" ><button type="submit" onClick={handleClick} >Submit</button></div>
-      
-        </form>
+        </div>
       </div>
-      
-    </div>
-    </div>
-    </div>
-    </div>
     </div>
   );
 }
