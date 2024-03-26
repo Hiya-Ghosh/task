@@ -4,16 +4,6 @@ import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete'; 
 
 
-import ImageUploadForm from './ImageUploadForm';
-import BG_main from "../images/BG_main.png"; 
-
-import profileImage from "../images/user.png";
-import tick from "../images/approve.png";
-import fwd from "../images/fwd.png";
-import remark from "../images/remark.svg";
-import meet from "../images/meet.svg";
-import mag from "../images/mag-glass.png";
-
 const Create = (props) => {
   const [cards, setCards] = useState([]);
 
@@ -104,7 +94,7 @@ const Create = (props) => {
     school: '',
     department: '',
     subject: '',
-    description: '',
+    description: 'test',
     details: '',
     objective: '',
     proposedBy1: '',
@@ -121,9 +111,43 @@ const Create = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Form submitted:', formData);
+  
+    const requestData = {
+      studentId: 1,
+      eventDate: formData.date,
+      school: formData.school,
+      department: formData.department,
+      subject: formData.subject,
+      description: formData.description,
+      details: formData.details,
+      objectives: formData.objective,
+      proposers: [formData.proposedBy1, formData.proposedBy2],
+      teachers: [...selectedOpt],
+    };
+  
+    fetch('http://localhost:3001/student/new', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestData),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Response from server:', data);
+        // Handle response from server if needed
+      })
+      .catch(error => {
+        console.error('There was a problem with the fetch operation:', error.message);
+        // Handle error
+      });
   };
-
+  
   const [selectedOpt, setSelectedOpt] = useState([]);
   
   const [file, setFile] = useState(null);
@@ -263,130 +287,6 @@ const Create = (props) => {
 
         </form>
       </div>
-      
-
-      {/* <div className="user-container" style={{backgroundImage: `url(${BG_main})`, backgroundSize: 'cover', backgroundPosition: 'top', backgroundRepeat: 'repeat', marginTop:'-30px'}}>
-    <div className="orange_overlay">
-    <div className="outer-box" style={{ backgroundColor: 'white',marginTop:'2.5%' }}>
-    <div className="my-component" style={{marginTop:'25px'}}>
-      <div className="form-container" >
-        <form onSubmit={handleSubmit}>
-
-
-
-            
-          
-
-          <div style={{  marginTop: '20px', marginBottom: '20px',paddingBottom:'20px',paddingTop:'20px' }}>
-            <span><b>Select Authorities for approval</b></span>
-            <form>
-              <label style={{  marginTop: '20px' }}>
-                <input
-                  type="checkbox"
-                  value="Director"
-                  checked={selectedOptions.includes('Director')}
-                  onChange={handleChange1}
-                />
-                Director
-              </label>
-              <br />
-              <label>
-                <input
-                  type="checkbox"
-                  value="HOD"
-                  checked={selectedOptions.includes('HOD')}
-                  onChange={handleChange1}
-                />
-                HOD
-              </label>
-              <br />
-              <label>
-                <input
-                  type="checkbox"
-                  value="Others"
-                  checked={selectedOptions.includes('Others')}
-                  onChange={handleChange1}
-                />
-                Others
-              </label>
-            </form>
-
-           
-            <div className="form-group">
-              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
-                <option value="">Select Faculty</option>
-                {facultyNames.map((name, index) => (
-                  <option key={index} value={name}>{name}</option>
-                ))}
-              </select>
-            </div>
-
-            <div  style={{  marginTop: '5px', marginBottom: '15px' }}>
-              <span><b>Add Flowchart for Approval</b></span>
-            </div>
-
-            <div>
-
-              <span>Send to faculty 1*</span>
-              <div className="form-group">
-              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
-                <option value=""></option>
-                {facultyNames.map((name, index) => (
-                  <option key={index} value={name}>{name}</option>
-                ))}
-              </select>
-              </div>
-
-              <div className="arrow-down-container">
-                <div className="arrow-down"></div>
-              </div>
-
-              <span>Send to faculty 2*</span>
-              <div className="form-group">
-              <select name="proposedBy1" value={formData.proposedBy1} onChange={handleChange}>
-                <option value=""></option>
-                {facultyNames.map((name, index) => (
-                  <option key={index} value={name}>{name}</option>
-                ))}
-              </select>
-              </div>
-
-            </div>
-
-          </div>
-
-         
-          <div className="app">
-            {cards}
-            <div className="button-container" style={{  marginTop: '5px', marginBottom: '15px' }}><button  onClick={handleAddCard}>Add Approvers</button></div>
-          </div>
-         
-          <div className="button-container" ><button type="submit" onClick={handleClick} >Submit</button></div>
-      
-        </form>
-      </div>
-      
-    </div>
-    </div>
-    </div>
-    </div> */}
-
-
-
-        {/* <div style={{ marginLeft: '40%', marginTop: '60px' }}> 
-            <Autocomplete 
-                multiple  
-                options={options} 
-                value={selectedOpt}  
-                onChange={(event, newValue) => {
-                    setSelectedOpt(newValue); 
-                }}
-                style={{ width: 300 }} 
-                renderInput={(params) => 
-                    <TextField {...params} label="Combo box" variant="outlined" />} 
-            /> 
-        </div>  */}
-    
     </div>
   );
 }

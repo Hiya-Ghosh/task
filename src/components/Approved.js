@@ -9,67 +9,11 @@ import mag from "../images/mag-glass.png";
 
 const Approved = (props) => {
   const [selectedIds, setSelectedIds] = useState([]);
-  const [cardsData1, setCardsData] = useState([]);
+  const [cardsData, setCardsData] = useState([]);
 
-  const cardsData = [
-    {
-      id: 1,
-      heading: 'To host Gate session',
-      date: 'February 4, 2024',
-      permission: 'Approved',
-      assign: 'Prof. Amit Garg',
-      details:
-        'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 2,
-      heading: 'Onerios 23',
-      date: 'February 5, 2024',
-      permission: 'Approved',
-      assign: 'Prof. Amit Garg',
-      details:
-      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 3,
-      heading: 'Cyber security seminar',
-      date: 'February 4, 2024',
-      permission: 'Approved',
-      assign: 'Prof. Amit Garg',
-      details:  'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 4,
-      heading: "Tech fest Techideate",
-      date: "February 5, 2024",
-      permission: "Pending",
-      assign: "Prof. Amit Garg",
-      details:
-      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 5,
-      heading: 'Cultural fest Reevz',
-      date: 'February 5, 2024',
-      permission: 'Pending',
-      assign: 'Prof. Amit Garg',
-      details:
-      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-    {
-      id: 6,
-      heading: 'Sports fest Abivrata',
-      date: 'February 5, 2024',
-      permission: 'Pending',
-      assign: 'Prof. Amit Garg',
-      details:
-      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-    },
-  ];
-  
   useEffect(() => {
     const storedUserData = JSON.parse(sessionStorage.getItem('userData'));
-    const url = 'http://localhost:3000/student/notesheets';
+    const url = 'http://localhost:3001/student/notesheets';
     fetch(url, {
       method: 'POST',
       headers: {
