@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./styles.css";
 import profileImage from "../images/user.png";
 import tick from "../images/approve.png";
@@ -20,62 +20,33 @@ const Main = (props) => {
     }
   };
 
-  const cardsData = [
-    {
-      id: 1,
-      heading: "Card 1",
-      date: "February 4, 2024",
-      permission: "Approved",
-      assign: "Prof. Amit Garg",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
-    },
-    {
-      id: 2,
-      heading: "Card 2",
-      date: "February 5, 2024",
-      permission: "Approved",
-      assign: "Prof. Amit Garg",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
-    },
-    {
-      id: 3,
-      heading: "Card 3",
-      date: "February 4, 2024",
-      permission: "Approved",
-      assign: "Prof. Amit Garg",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
-    },
-    {
-      id: 4,
-      heading: "Card 4",
-      date: "February 5, 2024",
-      permission: "Pending",
-      assign: "Prof. Amit Garg",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
-    },
-    {
-      id: 5,
-      heading: "Card 5",
-      date: "February 5, 2024",
-      permission: "Pending",
-      assign: "Prof. Amit Garg",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
-    },
-    {
-      id: 6,
-      heading: "Card 6",
-      date: "February 5, 2024",
-      permission: "Pending",
-      assign: "Prof. Amit Garg",
-      details:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla condimentum justo in mi tristique, auctor cursus velit tempus.",
-    },
-  ];
+  const [cardsData, setCardsData] = useState([]);
+
+  useEffect(() => {
+    const storedUserData = JSON.parse(sessionStorage.getItem('userData'));
+    const url = 'http://localhost:3001/student/notesheets';
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ studentId: storedUserData.userId })
+    })
+        .then(response => response.json())
+        .then(response => {
+          const newCardsData = response?.notesheets.map(note => ({
+            id: note?.nid,
+            heading: note?.subject,
+            date: note?.eventDate,
+            permission: note?.status,
+            assign: note.teachers?.map(teacher => teacher.name).join(', '),
+            details: note?.details,
+          }));
+          console.log(cardsData);
+          setCardsData(newCardsData)
+        })
+        .catch(error => console.error('Error:', error));
+  }, []);
 
   return (
     <div className="full-display">
