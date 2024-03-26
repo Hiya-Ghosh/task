@@ -122,7 +122,7 @@ const Create = (props) => {
       details: formData.details,
       objectives: formData.objective,
       proposers: [formData.proposedBy1, formData.proposedBy2],
-      teacher: [...selectedOpt],
+      teachers: [...selectedOpt],
     };
   
     fetch('http://localhost:3001/student/new', {
