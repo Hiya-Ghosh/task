@@ -3,8 +3,17 @@
 }
 
 *{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
 }
+body{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
 
 /* HOME PAGE */
 .imageContainer {
@@ -12,12 +21,7 @@
     overflow: hidden;
 
 }
-  
-.backgroundImage {
-    width: 105%; 
-    height: auto;
-    display: block;
-}
+
 .centered-container {
   margin-top: 10%;
  margin-left: 20%;
@@ -338,9 +342,9 @@
 
 /*submit button*/
 .input-label {
-  justify-content: space-between;
   display: flex;
-  text-align: left;
+  justify-content: center;
+  text-align: center;
 }
 
 /* check */
@@ -667,6 +671,7 @@ margin-bottom: 10px;
   flex-direction: column; /* Stack children vertically */
   align-items: center; /* Center children horizontally */
   justify-content: center; /* Center children vertically */
+  border-radius: 10px;
 }
 
 
@@ -772,4 +777,357 @@ margin-bottom: 10px;
 
 
 
+
+
+
+
+
+
+
+
+
+
+/* LATEST */
+/* LOGIN */
+
+.Login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: url("../images/BG_main.png"); 
+  background-size: cover; 
+}
+.wrapper{
+  width: 480px;
+  background-color: rgba(255, 255, 255, 0.85); 
+  color: black;
+  border-radius: 10px;
+}
+
+.wrapper h1{
+  font-size: 30px;
+  text-align: center;
+}
+
+.wrapper .input-box{
+  position: relative;
+  width: 90%;
+  height: 50px;
+  margin: 30px 30px;
+}
+
+.input-box input{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  border: 2px solid black;
+  border-radius: 40px;
+  font-size: 16px;
+  color: black;
+  padding: 20px 45px 20px 20px;
+}
+.input-box input::placeholder{
+  color: black;
+}
+
+.input-box .icon{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.wrapper .remember-forgot{
+  accent-color: black;
+  margin-left: 69%;
+}
+
+.remember-forgot label input{
+  accent-color: black;
+  text-decoration: none;
+}
+
+.remember-forgot a:hover{
+  text-decoration: underline;
+}
+
+.wrapper button{
+  margin: 20px 90px;
+  width: 70%;
+  height: 45px;
+  background:#e68d6c ;
+  /* background:#e8ad97 ; */
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  font-weight: 700;
+}
+
+.wrapper .logo {
+  margin-top: 3%;
+  margin-left:18% ;
+  margin-bottom: 3%;
+  width: 60%; 
+}
+
+
+/* CREATE FORM */
+.d-flex {
+  display: flex;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.bg-primary {
+  position: relative; 
+  background-image: url('../images/BG_main.png'); 
+  background-size: cover; 
+  background-position: center; 
+}
+.bg-primary::after {
+  content: ''; /* Create a pseudo-element */
+  position: absolute; /* Position the pseudo-element */
+  top: 0; /* Align the pseudo-element to the top of the container */
+  left: 0; /* Align the pseudo-element to the left of the container */
+  width: 100%; /* Set the width to match the container */
+  height: 100%; /* Set the height to match the container */
+  background-color: rgba(255, 165, 0, 0.2); /* Semi-transparent orange color */
+}
+
+.bg-primary > div {
+  position: relative; /* Make the div position relative */
+  z-index: 1; /* Ensure the div is above the pseudo-element */
+}
+
+.vh-100 {
+  height: 100vh;
+}
+
+.bg-white {
+  background-color: #fff; 
+}
+
+.p-3 {
+  padding: 0.75rem; 
+}
+
+.rounded {
+  border-radius: 0.25rem; 
+}
+
+.w-25 {
+  width: 35%;
+}
+
+.mb-3 {
+  margin-bottom: 1rem;
+}
+
+.h2-create {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.create {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.button-container1 {
+  text-align: center; /* Center the button horizontally */
+}
+
+.button-container1 button {
+  border-radius: 20px; /* Make the edges round */
+  background-color: #ee864f; /* Add a slight color */
+  padding: 10px 20px; /* Add padding for better visual appearance */
+  border: none; /* Remove border */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  
+  font-size: 16px; /* Increase text size */
+}
+
+.button-container1 button:hover {
+  background-color: #f7bd8d; /* Darken the background color on hover */
+}
+
+
+/* MAIN NAV */
+.navbar1 {
+  background-color: #ff8800e5;
+  padding: 1%;
+  padding-left: 2%;
+  padding-right: 2%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar1 ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar1 li {
+  margin-right: 15%; /* Adjust the value as needed */
+}
+
+.navbar1 a {
+  text-decoration: none;
+  color: black;
+}
+
+
+.search-box1 {
+  display: flex;
+  align-items: center;
+  margin-left: 37%; /* Adjust as needed */
+ 
+}
+
+.search-box1 input[type="text"] {
+  border-radius: 20px; /* Adjust as needed */
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.search-box1 button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  margin-left: -20px; /* Adjust as needed */
+  cursor: pointer;
+}
+
+.search-box1 .mag_img {
+  width: 20px; /* Adjust the size of the image */
+  height: auto;
+}
+
+
+.search-box1 .mag_img{
+  height: 12px;
+  width: 12px;
+}
+.search-box1 {
+  position: relative;
+  display: inline-block;
+}
+
+.search-box1 input[type="text"] {
+  padding-right: 30px; /* Adjust this value according to your image size */
+}
+
+.search-box1 button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 5px; /* Adjust this value to position the button */
+  background: none;
+  border: none;
+}
+
+.mag_img {
+  width: 20px; /* Adjust the size of the image */
+  height: auto;
+}
+
+
+.mag_img{
+  height: 12px;
+  width: 12px;
+}
+
+
+/* .sort-dropdown select {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.sort-dropdown select:hover {
+  border-color: #007bff;
+} */
+
+.sort-dropdown {
+  margin-left: auto; /* Moves the sorting dropdown to the right */
+  margin-right: 100px; /* Adjust this value to move it further to the right */
+}
+.sort-dropdown select {
+  padding: 8px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  font-size: 16px;
+}
+
+.sort-dropdown select:hover {
+  border-color: #007bff;
+}
+
+.search-box1 {
+  display: flex;
+  align-items: center;
+  margin-left: 33%; 
+  margin-right: 2.7%;
+}
+
+
+/* USER */
+.user-profile-box {
+  border: 2px solid orange; /* Add border around the form */
+  border-radius: 10px; /* Add rounded corners */
+  padding: 20px; /* Add padding inside the box */
+  background-color: orange; /* Add background color for shading */
+  width: 500px; /* Set width of the box */
+  margin: 5px auto 0; /* Center the box horizontally and add spacing to the top */
+  text-align: center; /* Center the content inside the box */
+}
+
+
+
+.submit-button {
+  display: flex;
+  align-self: center; 
+  margin-left: 50%;/* Center the button horizontally */
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px; /* Adjust the margin to position the button */
+  
+}
+
+
+
+.input-label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333; /* Adjust color as needed */
+}
 

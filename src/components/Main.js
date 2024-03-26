@@ -9,8 +9,65 @@ import mag from "../images/mag-glass.png";
 import defaultProfileImage from "../images/user.png";
 
 const Main = (props) => {
+  
   const [selectedIds, setSelectedIds] = useState([]);
-  const [cardsData, setCardsData] = useState([]);
+  const [cardsData1, setCardsData] = useState([]);
+
+  const cardsData = [
+    {
+      id: 1,
+      heading: 'To host Gate session',
+      date: 'February 4, 2024',
+      permission: 'Approved',
+      assign: 'Prof. Amit Garg',
+      details:
+        'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    },
+    {
+      id: 2,
+      heading: 'Onerios 23',
+      date: 'February 5, 2024',
+      permission: 'Approved',
+      assign: 'Prof. Amit Garg',
+      details:
+      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    },
+    {
+      id: 3,
+      heading: 'Cyber security seminar',
+      date: 'February 4, 2024',
+      permission: 'Approved',
+      assign: 'Prof. Amit Garg',
+      details:  'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    },
+    {
+      id: 4,
+      heading: "Tech fest Techideate",
+      date: "February 5, 2024",
+      permission: "Pending",
+      assign: "Prof. Amit Garg",
+      details:
+      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    },
+    {
+      id: 5,
+      heading: 'Cultural fest Reevz',
+      date: 'February 5, 2024',
+      permission: 'Pending',
+      assign: 'Prof. Amit Garg',
+      details:
+      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    },
+    {
+      id: 6,
+      heading: 'Sports fest Abivrata',
+      date: 'February 5, 2024',
+      permission: 'Pending',
+      assign: 'Prof. Amit Garg',
+      details:
+      'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+    },
+  ];
 
   useEffect(() => {
     const storedUserData = JSON.parse(sessionStorage.getItem('userData'));
@@ -38,82 +95,46 @@ const Main = (props) => {
         .catch(error => console.error('Error:', error));
   }, []);
 
-  const handleTickClick = (id) => {
-    // Toggle the selection
-    if (selectedIds.includes(id)) {
-      setSelectedIds(selectedIds.filter((selectedId) => selectedId !== id));
+  // const handleTickClick = (id) => {
+  //   if (selectedIds.includes(id)) {
+  //     setSelectedIds(selectedIds.filter((selectedId) => selectedId !== id));
+  //   } else {
+  //     setSelectedIds([...selectedIds, id]);
+  //   }
+  // };
+ 
+  const [sortOption, setSortOption] = useState("none");
+
+  const sortedCards = [...cardsData].sort((a, b) => {
+    if (sortOption === "asc") {
+      return new Date(a.date) - new Date(b.date);
+    } else if (sortOption === "desc") {
+      return new Date(b.date) - new Date(a.date);
     } else {
-      setSelectedIds([...selectedIds, id]);
+      return 0;
     }
+  });
+
+  const handleSortChange = (event) => {
+    setSortOption(event.target.value);
   };
-  // const cardsData = [
-  //   {
-  //     id: 1,
-  //     heading: 'To host Gate session',
-  //     date: 'February 4, 2024',
-  //     permission: 'Approved',
-  //     assign: 'Prof. Amit Garg',
-  //     details:
-  //       'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  //   },
-  //   {
-  //     id: 2,
-  //     heading: 'Onerios 23',
-  //     date: 'February 5, 2024',
-  //     permission: 'Approved',
-  //     assign: 'Prof. Amit Garg',
-  //     details:
-  //     'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  //   },
-  //   {
-  //     id: 3,
-  //     heading: 'Cyber security seminar',
-  //     date: 'February 4, 2024',
-  //     permission: 'Approved',
-  //     assign: 'Prof. Amit Garg',
-  //     details:  'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  //   },
-  //   {
-  //     id: 4,
-  //     heading: "Tech fest Techideate",
-  //     date: "February 5, 2024",
-  //     permission: "Pending",
-  //     assign: "Prof. Amit Garg",
-  //     details:
-  //     'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  //   },
-  //   {
-  //     id: 5,
-  //     heading: 'Cultural fest Reevz',
-  //     date: 'February 5, 2024',
-  //     permission: 'Pending',
-  //     assign: 'Prof. Amit Garg',
-  //     details:
-  //     'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  //   },
-  //   {
-  //     id: 6,
-  //     heading: 'Sports fest Abivrata',
-  //     date: 'February 5, 2024',
-  //     permission: 'Pending',
-  //     assign: 'Prof. Amit Garg',
-  //     details:
-  //     'Gate session has to organised under the department of SCSE for the students and there will be a guest speaeker who recently quslified for GATE 2023 with good score and have sound knowlwdge about the Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  //   },
-  // ];
+
+  const handleTickClick = (id) => {
+    setSelectedIds((prevSelectedIds) =>
+      prevSelectedIds.includes(id)
+        ? prevSelectedIds.filter((selectedId) => selectedId !== id)
+        : [...prevSelectedIds, id]
+    );
+  };
+
   
   return (
     <div className="full-display">
-      <nav className="navbar">
+      <nav className="navbar1">
         <ul>
           <li>
             <a className="header" href="/Main">
               All
-            </a>
-          </li>
-          <li>
-            <a className="header" href="/Approved">
-              Approved
             </a>
           </li>
           <li>
@@ -122,12 +143,28 @@ const Main = (props) => {
             </a>
           </li>
           <li>
+            <a className="header" href="/Approved">
+              Approved
+            </a>
+          </li>
+         
+          <li>
             <a className="header" href="/Status">
               Status
             </a>
           </li>
         </ul>
-        <div className="search-box">
+
+          <li className="sort-dropdown ">
+            <select value={sortOption} onChange={handleSortChange}>
+              <option value="none">Sort by Date</option>
+              <option value="asc">Oldest to Newest</option>
+              <option value="desc">Newest to Oldest</option>
+            </select>
+          </li>
+
+
+        <div className="search-box1">
           <input type="text" placeholder="Search..." />
           <button>
             <img className="mag_img" src={mag} alt="mag" />
@@ -163,9 +200,9 @@ const Main = (props) => {
       </div>
 
       <div className="card-list">
-        {cardsData.map((card) => (
+        {sortedCards.map((card) => (
           <div className="card" key={card.id}>
-            <h2>{card.heading}</h2>
+          <h2>{card.heading}</h2>
             <p className="card-date">
               <span>{card.date}</span>
               <span
@@ -239,3 +276,4 @@ const Main = (props) => {
 };
 
 export default Main;
+

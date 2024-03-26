@@ -87,15 +87,16 @@ const Main = (props) => {
             </a>
           </li>
           <li>
-            <a className="header" href="/Approved">
-              Approved
-            </a>
-          </li>
-          <li>
             <a className="header" href="/Pending">
               Pending
             </a>
           </li>
+          <li>
+            <a className="header" href="/Approved">
+              Approved
+            </a>
+          </li>
+          
           <li>
             <a className="header" href="/Status">
               Status

@@ -4,6 +4,9 @@ import BG_main from "../images/BG_main.png";
 import logo from "../images/MUJ-Logo.png";
 import './styles.css';
 import { useState } from 'react';
+import { FaUser } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
+
 
 
 //auth/login
@@ -58,53 +61,43 @@ const Home = (props) => {
     };
 
     return (
-        <div className="imageContainer">
-            <img className="backgroundImage" src={BG_main} alt="Background" />
-            <div className="centeredDiv">
-                <img className="back" src={logo} alt="Logo" />
-                <div className="centeredDiv2">
-                    <form onSubmit={handleSubmit}>
-
-
-                    <div className="centered-container">
-                    <div>
-                        <div className='text' style={{ marginTop: '25px',marginLeft:"-50%"}}>
-                        <span> Enter NMS ID</span>
-                        </div>
-                        <div className="underline-input" style={{ marginLeft:"-50%"}}>
-                        <input
-                            type="text"
-                            value={username}
-                            onChange={handleUsernameChange}
-                        />
-                        </div>
-
-                        <div className='text' style={{ marginTop: '25px',marginLeft:"-50%"}}>
-                        <span> Enter your Password</span>
-                        </div>
-                        <div className="underline-input" style={{ marginLeft:"-50%"}}>
-                        <input
-                            type="password"
-                            value={password}
-                            onChange={handlePasswordChange}
-                        />
-                        </div>
-                    </div>
-                    </div>
-
-
-
-
-                        <div className='login-home'>
-                            <button type="submit" className='text1'>Login</button>
-                        </div>
-                    </form>
+        <div className='Login'>
+        <div className='wrapper'>
+            <form onSubmit={handleSubmit}>
+            <div><img className="logo" src={logo} alt="Logo" /> </div>
+                <h1>LOGIN</h1>
+                <div className='input-box'>
+                    <input type="text" placeholder='Username' required 
+                    value={username}
+                    onChange={handleUsernameChange}/>
+                    <FaUser className='icon'/>
                 </div>
-                {/* <a className="container" id="btn" href="/Main"><button>Press me</button></a> */}
-            </div>
+                <div className='input-box'>
+                    <input type="password" placeholder='Password' required 
+                    value={password}
+                    onChange={handlePasswordChange}
+                    />
+                    <FaLock className='icon' />
+
+                </div>
+
+                <div className='remember-forgot'>
+                <a href='#' style={{ color: "rgba(255,0,0,.8)" }}>Forgot Password?</a>
+                </div>
+
+               
+                
+                <button type='submit'>Login</button>
+            </form>
         </div>
+        </div>
+
+      
+
     );
 } 
+
+
 
 export default Home;
 
